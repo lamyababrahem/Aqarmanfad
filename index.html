@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>عقار منفذ — تنازل عن عقدك العقاري واسترد ما دفعت</title>
+<title>عقار منفذ — تنازل عن عقدك المتعثر واسترد ما دفعت</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
 <script>try{var t=localStorage.getItem("aqm_theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <style>
@@ -86,6 +86,14 @@ dialog{border:0;border-radius:16px;padding:26px;max-width:420px;width:92%;backgr
 dialog::backdrop{background:#000a}
 @media(max-width:820px){nav{display:none}header .btn{margin-inline-start:auto}.hero .w,.cmp,.calc,.sell{grid-template-columns:1fr}.hero .big{width:180px;order:-1}.steps,.std{grid-template-columns:1fr 1fr}.strip .w{grid-template-columns:1fr 1fr;gap:14px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cats .box{display:flex;flex-direction:column;gap:8px}.cats .btn{margin-top:auto}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}.tab{font:600 14px Cairo,sans-serif;padding:8px 16px;border-radius:99px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}.tab[aria-selected="true"]{background:var(--ac);color:var(--onac);border-color:var(--ac)}
+.chk{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:6px}.chk label{display:flex;align-items:center;gap:6px;margin:0;color:var(--ink);font-size:14px}.chk input{width:auto}
+dialog{max-width:520px;max-height:90vh;overflow:auto}
+.st{display:flex;gap:6px;margin:10px 0 14px}.st span{flex:1;text-align:center;font-size:12.5px;padding:5px 2px;border-radius:8px;background:var(--bg);color:var(--mut);border:1px solid var(--line)}.st span.on{background:var(--ac);color:var(--onac);border-color:var(--ac)}
+.msg{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:14px}
+.dact{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+@media(max-width:820px){.cats{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -100,9 +108,9 @@ dialog::backdrop{background:#000a}
 <main id="top">
 <div class="hero"><div class="w">
 <div>
-<div class="eyebrow">منصة التنازل عن العقود العقارية المتعثرة</div>
+<div class="eyebrow">منصة التنازل عن العقود المتعثرة: وحدات، سيارات، معدات، ومحلات للتقبيل</div>
 <h1>تنازل عن عقدك المتعثر، <em>واسترد ما دفعت</em></h1>
-<p>إذا لم تعد قادرًا على إكمال أقساط وحدتك السكنية، لا تلغِ العقد وتخسر. انقله لمشترٍ يكمل الأقساط، وتسترد ما دفعته. والمشتري يحصل على الوحدة بسعر التعاقد القديم.</p>
+<p>عقدك تعثّر؟ سواء كان وحدة سكنية أو سيارة أو رافعة ومعدة ثقيلة أو محلًا للتقبيل، لا تلغِ العقد وتخسر. انقله لمشترٍ يكمل الالتزام، وتسترد ما دفعته. والمشتري يحصل عليه بسعر التعاقد القديم.</p>
 <div class="cta"><a class="btn" href="#sell">اعرض عقدك مجانًا</a><a class="btn g" href="#contracts">تصفح العقود</a></div>
 </div>
 <svg class="big" viewBox="0 0 120 120" role="img" aria-label="شعار عقار منفذ"><use href="#mk"/></svg>
@@ -110,14 +118,21 @@ dialog::backdrop{background:#000a}
 
 <div class="strip"><div class="w">
 <div><b>٠</b><span>عمولة على البائع</span></div>
-<div><b>٢٫٥٪</b><span>عمولة الصفقة</span></div>
-<div><b>٠٫٥٪</b><span>رسم فتح التواصل</span></div>
+<div><b>٢٫٥٪</b><span>عمولة الصفقة (مقترحة)</span></div>
+<div><b>مجاني</b><span>فتح التواصل والتفاوض</span></div>
 <div><b>بالضمان</b><span>الدفع (قيد الإعداد)</span></div>
 </div></div>
 
+<section id="cats"><div class="w"><h2>ماذا تقدر تعرض؟</h2><p class="sub">أربع فئات، ولكل فئة تفاصيلها الكاملة قبل أن تبدأ مرحلة التفاوض.</p>
+<div class="cats">
+<div class="box"><h3>وحدة سكنية</h3><p class="note">عقود البيع على الخارطة والتمليك بالتقسيط.</p><button class="btn" data-cat="unit">اعرض وحدتك</button></div>
+<div class="box"><h3>سيارة</h3><p class="note">عقود التمويل والتقسيط للسيارات.</p><button class="btn" data-cat="car">اعرض سيارتك</button></div>
+<div class="box"><h3>رافعة أو معدة</h3><p class="note">للأفراد وشركات المقاولات والنقل والمصانع.</p><button class="btn" data-cat="equip">اعرض معدتك</button></div>
+<div class="box"><h3>محل للتقبيل</h3><p class="note">محل تجاري بمعداته ومخزونه وحق الانتفاع بموقعه.</p><button class="btn" data-cat="shop">اعرض محلك</button></div>
+</div></div></section>
 <section id="example"><div class="w">
 <h2>الإلغاء يكلّفك. التنازل يسترد لك.</h2>
-<p class="sub">وحدة سعرها ١٬٠٠٠٬٠٠٠ ريال، دفع صاحبها ٢٠٠٬٠٠٠ وتعثّر. (مثال توضيحي، والخصم يختلف من عقد لعقد)</p>
+<p class="sub">وحدة سعرها ١٬٠٠٠٬٠٠٠ ريال، دفع صاحبها ٢٠٠٬٠٠٠ وتعثّر. (مثال توضيحي بوحدة سكنية، والمبدأ نفسه ينطبق على السيارة والمعدة، والخصم يختلف من عقد لعقد)</p>
 <div class="cmp">
 <div class="box"><h3>إلغاء العقد عند المطوّر</h3>
 <div class="row"><span>المدفوع</span><b>٢٠٠٬٠٠٠ ريال</b></div>
@@ -150,37 +165,29 @@ dialog::backdrop{background:#000a}
 <h2>كيف نعمل؟</h2>
 <p class="sub">خمس خطوات واضحة من العرض إلى استلام المبلغ.</p>
 <div class="steps">
-<div class="step"><h3>اعرض عقدك</h3><p>أدخل بيانات العقد والمدفوع، وبياناتك الشخصية لا تظهر للمشترين.</p></div>
+<div class="step"><h3>اعرض عقدك</h3><p>اختر الفئة (وحدة، سيارة، معدة، أو محل للتقبيل) وأدخل تفاصيلها كاملة.</p></div>
 <div class="step"><h3>نراجع المستندات</h3><p>نتحقق من العقد والإيصالات والمتبقي قبل النشر.</p></div>
-<div class="step"><h3>نجد المشتري</h3><p>مشترون جادّون يتواصلون عبر محادثة داخل المنصة.</p></div>
+<div class="step"><h3>نفتح التفاوض</h3><p>التواصل مجاني، ويتفاوض المشتري والبائع داخل المنصة.</p></div>
 <div class="step"><h3>دفع آمن</h3><p>يُحجز مبلغ المشتري عبر جهة دفع مرخصة حتى إتمام التنازل (قيد الإعداد).</p></div>
 <div class="step"><h3>توثيق ونقل</h3><p>نتابع موافقة المطوّر أو الجهة الممولة، ثم يُحوَّل المبلغ لك.</p></div>
 </div></div></section>
 
 <section id="contracts" class="alt"><div class="w">
-<h2>العقود المتاحة</h2>
-<p class="sub">كل عقد يعرض المدفوع والمتبقي والقسط، والسعر المطلوب يساوي ما دُفع فعلًا.</p>
+<h2>العروض المتاحة</h2>
+<p class="sub">كل عرض بتفاصيل فئته الكاملة، ويمكنك فتح التواصل وبدء التفاوض مجانًا.</p>
 <div class="filters">
-<select id="ft" aria-label="النوع"><option value="">كل الأنواع</option><option>عقار</option><option>سيارة</option><option>أخرى</option></select>
+<select id="ft" aria-label="الفئة"><option value="">كل الفئات</option><option value="unit">وحدة سكنية</option><option value="car">سيارة</option><option value="equip">رافعة أو معدة</option><option value="shop">محل للتقبيل</option></select>
 <select id="fc" aria-label="المدينة"><option value="">كل المدن</option></select>
 </div>
 <div class="grid" id="gr"></div>
-<p class="note">العقود المعروضة حاليًا أمثلة تجريبية.</p>
+<p class="note">العروض المعروضة حاليًا أمثلة تجريبية.</p>
 </div></section>
 
 <section id="sell"><div class="w">
 <h2>اعرض عقدك</h2>
-<p class="sub">نراجع العقد قبل النشر. البيع عبر عقار منفذ مجاني عليك بالكامل.</p>
-<div class="box"><div class="sell">
-<div><label for="st">النوع</label><select id="st"><option>عقار</option><option>سيارة</option><option>أخرى</option></select></div>
-<div><label for="sm">المدينة</label><input id="sm" placeholder="مثال: جدة"></div>
-<div class="full"><label for="sh">عنوان الإعلان</label><input id="sh" placeholder="مثال: شقة ٣ غرف، حي الياسمين"></div>
-<div><label for="sp">السعر الإجمالي (ريال)</label><input id="sp" type="number" min="0" inputmode="numeric"></div>
-<div><label for="sd">المدفوع حتى الآن = سعر التنازل (ريال)</label><input id="sd" type="number" min="0" inputmode="numeric"></div>
-<div><label for="sy">مدة التقسيط (سنوات)</label><input id="sy" type="number" min="1" max="25" value="5" inputmode="numeric"></div>
-<div style="align-self:end"><button class="btn" id="sb" style="width:100%;margin-top:12px">انشر الإعلان</button></div>
-<div class="full note" id="sn" aria-live="polite"></div>
-</div></div></div></section>
+<p class="sub">اختر الفئة وأدخل تفاصيلها كاملة، وبعدها تبدأ مرحلة التفاوض مع المشترين. نراجع العرض قبل النشر.</p>
+<div class="box"><div class="tabs" id="tabs"></div><div class="sell" id="sf"></div><div class="note" id="sn" aria-live="polite"></div><button class="btn" id="sb" style="margin-top:14px;min-width:200px">انشر العرض</button></div>
+</div></section>
 
 <section class="alt"><div class="w">
 <h2>معايير الخروج العادل</h2><p class="sub">قواعد نلتزم بها قبل أن نطلب منك الثقة.</p>
@@ -195,7 +202,7 @@ dialog::backdrop{background:#000a}
 <h2>أسئلة شائعة</h2><br>
 <details><summary>هل يمكنني التنازل عن أي عقد؟</summary><p>يعتمد على شروط عقدك وموافقة المطوّر أو الجهة الممولة. نراجع ذلك معك قبل النشر.</p></details>
 <details><summary>متى أستلم فلوسي؟</summary><p>بعد إتمام التنازل رسميًا. وآلية حجز مبلغ المشتري عبر جهة دفع مرخصة قيد الإعداد.</p></details>
-<details><summary>كم تأخذون عمولة؟</summary><p>لا شيء على البائع. على الصفقة عمولة ٢٫٥٪، ورسم فتح التواصل ٠٫٥٪.</p></details>
+<details><summary>كم تأخذون عمولة؟</summary><p>لا شيء على البائع، وفتح التواصل والتفاوض مجاني. وتُحدَّد عمولة الصفقة (مقترحة ٢٫٥٪) عند الإتمام فقط، وقبل الإطلاق نؤكدها.</p></details>
 <details><summary>هل عقار منفذ استشارة قانونية؟</summary><p>لا. الأرقام استرشادية، والمراجعة النهائية تتم على عقدك الفعلي مع مختصين مؤهلين.</p></details>
 </div></section>
 </main>
@@ -205,8 +212,7 @@ dialog::backdrop{background:#000a}
 نموذج تجريبي: الدفع المعروض محاكاة ولا يتم فيه خصم فعلي، والعقود المعروضة أمثلة، والمنصة لم تحصل بعد على التراخيص اللازمة للتشغيل. © ٢٠٢٦ عقار منفذ.
 </div></footer>
 
-<dialog id="dg"><h3 id="dt" style="margin-bottom:8px"></h3><p id="dp" style="color:var(--mut);font-size:15px"></p>
-<div style="display:flex;gap:10px;margin-top:18px"><button class="btn" id="dok">سجّل اهتمامي</button><button class="btn" style="background:transparent;color:var(--ink);border:1.5px solid var(--line)" id="dx">إغلاق</button></div></dialog>
+<dialog id="dg"><div id="db"></div></dialog>
 
 <script>
 var $=function(i){return document.getElementById(i)};
@@ -214,14 +220,22 @@ var n=function(v){return Number(v||0).toLocaleString("ar-SA")};
 var R=function(v){return n(Math.round(v))+" ريال"};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 $("tg").onclick=function(){var d=document.documentElement,t=d.getAttribute("data-theme")==="dark"?"light":"dark";d.setAttribute("data-theme",t);try{localStorage.setItem("aqm_theme",t)}catch(e){}};
+var CATS={
+unit:{n:"وحدة سكنية",nt:"التنازل يحتاج غالبًا موافقة المطوّر.",f:[["price","سعر الوحدة الأصلي (ريال)","n"],["paid","المبلغ المدفوع (ريال)","n"],["ask","المطلوب من المتنازل (ريال)","n"],["monthly","القسط الشهري (ريال)","n"],["ctype","نوع العقد","s",["بيع على الخارطة","تمليك بالتقسيط","أخرى"]],["party","جهة التعاقد","t"],["approve","إمكانية التنازل","s",["تحتاج موافقة المطوّر","مسموح بدون موافقة","غير مؤكد"]]]},
+car:{n:"سيارة",nt:"نقل عقد التمويل يحتاج موافقة الممول.",f:[["model","نوع السيارة وموديلها","t"],["year","سنة الصنع","n"],["fin","جهة التمويل","t"],["monthly","قيمة القسط (ريال)","n"],["left","الأقساط المتبقية","n"],["paid","الدفعة المقدمة التي دفعها صاحب العقد (ريال)","n"],["ask","مبلغ التنازل المطلوب (ريال)","n"],["cond","حالة السيارة والمسافة المقطوعة","t"],["allow","هل يسمح الممول بنقل العقد؟","s",["نعم","بعد موافقة الممول","لا","غير مؤكد"]]]},
+equip:{n:"رافعة أو معدة",nt:"تأكد هل التنازل عن المعدة فقط أم عن عقد التمويل أو التأجير أيضًا.",f:[["model","نوع المعدة والموديل","t"],["yh","سنة الصنع وساعات التشغيل","t"],["loc","الموقع الحالي للمعدة","t"],["maint","حالة الصيانة","t"],["value","قيمة المعدة (ريال)","n"],["remain","الرصيد المتبقي من التمويل أو الإيجار (ريال)","n"],["term","مدة العقد المتبقية","t"],["scope","نطاق التنازل","s",["عن المعدة فقط","عن عقد التمويل","عن عقد التأجير","المعدة والعقد معًا"]],["ask","المبلغ المطلوب للتنازل (ريال)","n"]]},
+shop:{n:"محل للتقبيل",nt:"لا تُعد رخصة النشاط أو عقد الإيجار قابلة للنقل تلقائيًا، فلكل عنصر إجراء مستقل وموافقاته.",f:[["act","نشاط المحل","t"],["ask","قيمة التقبيل المطلوبة (ريال)","n"],["rent","مدة عقد الإيجار المتبقية","t"],["chk","ما يشمله التقبيل","c",["المعدات والأجهزة","الأثاث والتجهيزات","المخزون","الاسم التجاري أو العلامة","عقد الإيجار وحق الانتفاع بالموقع","الرخص والتصاريح القابلة للنقل"]]]}};
 var items=[
-{t:"شقة ٣ غرف، حي الياسمين",c:"عقار",m:"الرياض",p:900000,y:5,d:360000},
-{t:"فيلا دورين، حي الشاطئ",c:"عقار",m:"جدة",p:1600000,y:7,d:480000},
-{t:"شقة غرفتين قرب الواجهة",c:"عقار",m:"الخبر",p:620000,y:6,d:210000},
-{t:"فيلا ثلاث غرف مع حوش",c:"عقار",m:"المدينة المنورة",p:1150000,y:8,d:300000},
-{t:"سيارة دفع رباعي موديل ٢٠٢٥",c:"سيارة",m:"الدمام",p:210000,y:4,d:90000},
-{t:"سيدان عائلية موديل ٢٠٢٤",c:"سيارة",m:"الرياض",p:130000,y:5,d:55000}];
-try{var sv=JSON.parse(localStorage.getItem("aqm_items")||"null");if(sv)items=sv}catch(e){}
+{id:"s1",c:"unit",t:"شقة ٣ غرف، حي الياسمين",m:"الرياض",f:{price:900000,paid:360000,ask:360000,monthly:4500,ctype:"بيع على الخارطة",party:"مطوّر عقاري (مثال)",approve:"تحتاج موافقة المطوّر"}},
+{id:"s2",c:"unit",t:"فيلا دورين، حي الشاطئ",m:"جدة",f:{price:1600000,paid:480000,ask:480000,monthly:8000,ctype:"بيع على الخارطة",party:"مطوّر عقاري (مثال)",approve:"تحتاج موافقة المطوّر"}},
+{id:"s3",c:"car",t:"هافال H6 موديل ٢٠٢٤",m:"الدمام",f:{model:"هافال H6",year:2024,fin:"جهة تمويل (مثال)",monthly:2300,left:42,paid:30000,ask:30000,cond:"ممتازة، ٢٨٬٠٠٠ كم",allow:"بعد موافقة الممول"}},
+{id:"s4",c:"car",t:"سيدان عائلية موديل ٢٠٢٥",m:"الرياض",f:{model:"سيدان",year:2025,fin:"جهة تمويل (مثال)",monthly:1900,left:48,paid:25000,ask:25000,cond:"جديدة، ٦٬٠٠٠ كم",allow:"نعم"}},
+{id:"s5",c:"equip",t:"حفارة كاتربيلر ٣٢٠",m:"جدة",f:{model:"حفارة كاتربيلر ٣٢٠",yh:"٢٠٢٢ · ٣٬٢٠٠ ساعة",loc:"جدة، ورشة المنطقة الصناعية",maint:"صيانة دورية موثقة",value:850000,remain:420000,term:"٢٦ شهرًا",scope:"المعدة والعقد معًا",ask:150000}},
+{id:"s6",c:"equip",t:"رافعة برجية ٢٥ طنًا",m:"الدمام",f:{model:"رافعة ٢٥ طنًا",yh:"٢٠٢١ · ٤٬١٠٠ ساعة",loc:"الدمام",maint:"تحتاج صيانة خفيفة",value:600000,remain:280000,term:"٢٠ شهرًا",scope:"عن عقد التأجير",ask:90000}},
+{id:"s7",c:"shop",t:"مطعم برجر بموقع تجاري",m:"الرياض",f:{act:"مطعم",ask:180000,rent:"٣ سنوات",chk:["المعدات والأجهزة","الأثاث والتجهيزات","المخزون","عقد الإيجار وحق الانتفاع بالموقع"]}},
+{id:"s8",c:"shop",t:"كوفي شوب جاهز للتشغيل",m:"جدة",f:{act:"مقهى",ask:120000,rent:"سنتان",chk:["المعدات والأجهزة","الأثاث والتجهيزات","الاسم التجاري أو العلامة"]}}];
+try{var sv=JSON.parse(localStorage.getItem("aqm_items2")||"null");if(sv)items=sv}catch(e){}
+var negs={};try{negs=JSON.parse(localStorage.getItem("aqm_negs")||"{}")}catch(e){}
 function calc(){
 var p=+$("cp").value||0,d=+$("cd").value||0,x=+$("cx").value||0,y=+$("cy").value||1;
 var cut=p*x/100,back=Math.max(0,d-cut),loss=d-back,rem=Math.max(0,p-d);
@@ -233,28 +247,59 @@ $("cr").innerHTML='<h3>النتيجة</h3>'+
 '<div class="row"><span>القسط الشهري التقريبي للمشتري</span><b>'+R(rem/(y*12))+'</b></div>'+
 '<div class="big2 ok">توفّر '+R(loss)+'</div>'}
 ["cp","cd","cx","cy"].forEach(function(i){$(i).oninput=calc});calc();
+function fv(l,v,t){if(t==="c")return(v||[]).join("، ")||"—";if(t==="n")return l.indexOf("ريال")>-1?R(v):n(v);return esc(v)}
 function cities(){var s={};items.forEach(function(i){s[i.m]=1});var f=$("fc"),v=f.value;
 f.innerHTML='<option value="">كل المدن</option>'+Object.keys(s).map(function(k){return"<option>"+esc(k)+"</option>"}).join("");f.value=v}
 function draw(){
 var t=$("ft").value,c=$("fc").value;
 var l=items.filter(function(i){return(!t||i.c===t)&&(!c||i.m===c)});
-$("gr").innerHTML=l.length?l.map(function(i){var k=items.indexOf(i),rem=i.p-i.d;
-return'<div class="card"><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mk"/></svg></div><div class="in"><span class="tag">بدون أوفر</span> <small>'+esc(i.c)+'</small><h3>'+esc(i.t)+'</h3><small>'+esc(i.m)+'</small>'+
-'<div class="meta"><div><span>السعر الإجمالي</span>'+R(i.p)+'</div><div><span>سعر التنازل</span><b>'+R(i.d)+'</b></div><div><span>المتبقي</span>'+R(rem)+'</div><div><span>القسط الشهري</span>'+R(rem/(i.y*12))+'</div></div>'+
-'<button class="btn" style="width:100%" onclick="openC('+k+')">افتح التواصل</button></div></div>'}).join(""):'<p class="note">لا توجد عقود مطابقة.</p>'}
-$("ft").onchange=draw;$("fc").onchange=draw;cities();draw();
-function openC(k){var i=items[k];$("dt").textContent=i.t;
-$("dp").textContent="رسم فتح التواصل ٠٫٥٪ = "+R(i.d*0.005)+". المحادثة تتم داخل المنصة مع حجب الأرقام والروابط. شاشة الدفع قيد التطوير حاليًا.";
-$("dok").style.display="";$("dg").showModal()}
-$("dx").onclick=function(){$("dg").close()};
-$("dok").onclick=function(){$("dp").textContent="تم تسجيل اهتمامك. سنتواصل معك عند تفعيل الدفع.";this.style.display="none"};
+$("gr").innerHTML=l.length?l.map(function(i){var C=CATS[i.c],sp=C.f.filter(function(x){return x[0]!=="ask"&&x[2]!=="c"}).slice(0,3);
+return'<div class="card"><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mk"/></svg></div><div class="in"><span class="tag">'+C.n+'</span><h3>'+esc(i.t)+'</h3><small>'+esc(i.m)+'</small>'+
+'<div class="meta"><div style="grid-column:1/-1"><span>المطلوب للتنازل</span><b>'+R(i.f.ask)+'</b></div>'+sp.map(function(x){return'<div><span>'+x[1].replace(/ \(ريال\)/,"")+'</span>'+fv(x[1],i.f[x[0]],x[2])+'</div>'}).join("")+'</div>'+
+'<button class="btn" style="width:100%" data-id="'+i.id+'">عرض التفاصيل</button></div></div>'}).join(""):'<p class="note">لا توجد عروض مطابقة.</p>'}
+$("ft").onchange=draw;$("fc").onchange=draw;
+$("gr").onclick=function(e){var b=e.target.closest("button[data-id]");if(b)openD(b.getAttribute("data-id"))};
+function find(id){return items.filter(function(i){return i.id===id})[0]}
+function stg(k){return'<div class="st">'+["العرض","التفاوض","الاتفاق","التوثيق"].map(function(x,j){return'<span'+(j<=k?' class="on"':'')+'>'+x+'</span>'}).join("")+'</div>'}
+function openD(id){var i=find(id),C=CATS[i.c];
+$("db").innerHTML='<h3>'+esc(i.t)+'</h3><small style="color:var(--mut)">'+C.n+' · '+esc(i.m)+'</small>'+stg(negs[id]?1:0)+
+C.f.map(function(x){return'<div class="row"><span>'+x[1]+'</span><b>'+fv(x[1],i.f[x[0]],x[2])+'</b></div>'}).join("")+
+(i.f.note?'<div class="row"><span>ملاحظات</span><b>'+esc(i.f.note)+'</b></div>':'')+
+'<p class="note">'+C.nt+' فتح التواصل مجاني.</p><div class="dact"><button class="btn" id="dn">ابدأ التفاوض</button><button class="btn" style="background:transparent;color:var(--ink);border:1.5px solid var(--line)" id="dx">إغلاق</button></div>';
+$("dx").onclick=function(){$("dg").close()};$("dn").onclick=function(){openN(id)};
+if(!$("dg").open)$("dg").showModal()}
+function openN(id){var i=find(id),th=negs[id]||[];
+$("db").innerHTML='<h3>التفاوض على: '+esc(i.t)+'</h3>'+stg(th.length?1:0)+
+'<p class="note" style="margin:0 0 8px">التواصل والتفاوض مجانيان. سعر التنازل المطلوب: '+R(i.f.ask)+'.</p>'+
+(th.length?th.map(function(m){return'<div class="msg"><b>المشتري:</b> عرض '+R(m.o)+(m.t?' — '+esc(m.t):'')+'</div>'}).join("")+'<p class="note">بانتظار رد البائع. (الردود مفعّلة في النسخة الكاملة)</p>':'<p class="note">قدّم أول عرض لك.</p>')+
+'<label for="no">عرضك (ريال)</label><input id="no" type="number" min="0" inputmode="numeric"><label for="nm">رسالة</label><input id="nm" placeholder="اختياري">'+
+'<div class="dact"><button class="btn" id="ns">أرسل العرض</button><button class="btn" style="background:transparent;color:var(--ink);border:1.5px solid var(--line)" id="nb">رجوع</button></div>';
+$("nb").onclick=function(){openD(id)};
+$("ns").onclick=function(){var o=+$("no").value;if(!o)return;(negs[id]=negs[id]||[]).push({o:o,t:$("nm").value.trim()});try{localStorage.setItem("aqm_negs",JSON.stringify(negs))}catch(e){}openN(id)}}
+var cur="unit";
+function form(){
+$("tabs").innerHTML=Object.keys(CATS).map(function(k){return'<button class="tab" data-k="'+k+'" aria-selected="'+(k===cur)+'">'+CATS[k].n+'</button>'}).join("");
+var h='<div class="full"><label for="f_t">عنوان العرض</label><input id="f_t" placeholder="مثال: '+({unit:"شقة ٣ غرف، حي الياسمين",car:"سيارة موديل ٢٠٢٤",equip:"حفارة ٣٢٠",shop:"مطعم بموقع تجاري"})[cur]+'"></div><div><label for="f_m">المدينة</label><input id="f_m" placeholder="مثال: جدة"></div>';
+CATS[cur].f.forEach(function(x){var id="f_"+x[0];
+if(x[2]==="s")h+='<div><label for="'+id+'">'+x[1]+'</label><select id="'+id+'">'+x[3].map(function(o){return"<option>"+o+"</option>"}).join("")+'</select></div>';
+else if(x[2]==="c")h+='<div class="full"><label>'+x[1]+'</label><div class="chk" id="'+id+'">'+x[3].map(function(o){return'<label><input type="checkbox" value="'+o+'">'+o+'</label>'}).join("")+'</div></div>';
+else h+='<div><label for="'+id+'">'+x[1]+'</label><input id="'+id+'"'+(x[2]==="n"?' type="number" min="0" inputmode="numeric"':'')+'></div>'});
+h+='<div class="full"><label for="f_note">ملاحظات (اختياري)</label><input id="f_note"></div>';
+$("sf").innerHTML=h;$("sn").textContent=""}
+$("tabs").onclick=function(e){var b=e.target.closest(".tab");if(b){cur=b.getAttribute("data-k");form()}};
+document.querySelectorAll("[data-cat]").forEach(function(b){b.onclick=function(){cur=b.getAttribute("data-cat");form();$("sell").scrollIntoView()}});
 $("sb").onclick=function(){
-var h=$("sh").value.trim(),m=$("sm").value.trim(),p=+$("sp").value,d=+$("sd").value,y=+$("sy").value||1;
-if(!h||!m||!p||!d||d>p){$("sn").textContent="أكمل الحقول، والمدفوع لا يتجاوز السعر الإجمالي.";return}
-items.unshift({t:h,c:$("st").value,m:m,p:p,y:y,d:d});
-try{localStorage.setItem("aqm_items",JSON.stringify(items))}catch(e){}
-cities();draw();$("sn").textContent="تم استلام عقدك للمراجعة، وظهر في القائمة كنموذج تجريبي.";
-["sh","sm","sp","sd"].forEach(function(i){$(i).value=""})};
+var t=$("f_t").value.trim(),m=$("f_m").value.trim(),f={},ok=!!(t&&m);
+CATS[cur].f.forEach(function(x){var el=$("f_"+x[0]);
+if(x[2]==="c"){f[x[0]]=[].slice.call(el.querySelectorAll("input:checked")).map(function(c){return c.value});if(!f[x[0]].length)ok=false}
+else if(x[2]==="n"){f[x[0]]=+el.value;if(!f[x[0]])ok=false}
+else{f[x[0]]=el.value.trim();if(!f[x[0]])ok=false}});
+if(!ok){$("sn").textContent="أكمل كل الحقول المطلوبة لهذه الفئة قبل النشر.";return}
+var nt=$("f_note").value.trim();if(nt)f.note=nt;
+items.unshift({id:"u"+Date.now(),c:cur,t:t,m:m,f:f});
+try{localStorage.setItem("aqm_items2",JSON.stringify(items))}catch(e){}
+cities();draw();form();$("sn").textContent="تم استلام عرضك للمراجعة، وظهر في القائمة كنموذج تجريبي."};
+cities();draw();form();
 </script>
 </body>
 </html>

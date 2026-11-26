@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>عقار منفذ — تنازل عن عقدك المتعثر واسترد ما دفعت</title>
+<title>عقود منفذ — تنازل عن عقدك المتعثر واسترد ما دفعت</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
 <script>try{var t=localStorage.getItem("aqm_theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <style>
@@ -94,14 +94,17 @@ dialog{max-width:520px;max-height:90vh;overflow:auto}
 .msg{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:14px}
 .dact{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
 @media(max-width:820px){.cats{grid-template-columns:1fr 1fr}}
+.btn.o{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mk" viewBox="0 0 120 120"><defs><mask id="mq" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120"><rect width="120" height="120" fill="#fff"/><path d="M26 122V60A34 34 0 0 1 94 60V122" fill="none" stroke="#000" stroke-width="4.5"/><path d="M36 122V60A24 24 0 0 1 84 60V122" fill="none" stroke="#000" stroke-width="4.5"/><path d="M50 122V60A10 10 0 0 1 70 60V122Z" fill="#000"/></mask></defs><circle cx="60" cy="60" r="55" fill="currentColor" mask="url(#mq)"/></symbol></svg>
 <header><div class="w">
-<a class="brand" href="#top" aria-label="عقار منفذ"><svg class="mk" viewBox="0 0 120 120" aria-hidden="true"><use href="#mk"/></svg><span><b>عقار منفذ</b><small>AQAR MANFAD</small></span></a>
-<nav><a href="#example">كيف نوفّر عليك</a><a href="#calc">الحاسبة</a><a href="#how">كيف نعمل</a><a href="#contracts">العقود</a><a href="#faq">الأسئلة</a></nav>
+<a class="brand" href="#top" aria-label="عقود منفذ"><svg class="mk" viewBox="0 0 120 120" aria-hidden="true"><use href="#mk"/></svg><span><b>عقود منفذ</b><small>UQOOD MANFAD</small></span></a>
+<nav><a href="#example">كيف نوفّر عليك</a><a href="#calc">الحاسبة</a><a href="#how">كيف نعمل</a><a href="#contracts">العقود</a><a href="#faq">الأسئلة</a><a id="nad" href="#admin" hidden>الإدارة</a></nav>
 <button class="tg" id="tg" aria-label="تبديل الوضع الليلي والنهاري" title="الوضع الليلي / النهاري"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<button class="btn o" id="au" style="padding:11px 16px;color:#e8eff3;border-color:#4a6a80">دخول</button>
 <a class="btn" href="#sell">اعرض عقدك</a>
 </div></header>
 
@@ -113,7 +116,7 @@ dialog{max-width:520px;max-height:90vh;overflow:auto}
 <p>عقدك تعثّر؟ سواء كان وحدة سكنية أو سيارة أو رافعة ومعدة ثقيلة أو محلًا للتقبيل، لا تلغِ العقد وتخسر. انقله لمشترٍ يكمل الالتزام، وتسترد ما دفعته. والمشتري يحصل عليه بسعر التعاقد القديم.</p>
 <div class="cta"><a class="btn" href="#sell">اعرض عقدك مجانًا</a><a class="btn g" href="#contracts">تصفح العقود</a></div>
 </div>
-<svg class="big" viewBox="0 0 120 120" role="img" aria-label="شعار عقار منفذ"><use href="#mk"/></svg>
+<svg class="big" viewBox="0 0 120 120" role="img" aria-label="شعار عقود منفذ"><use href="#mk"/></svg>
 </div></div>
 
 <div class="strip"><div class="w">
@@ -139,7 +142,7 @@ dialog{max-width:520px;max-height:90vh;overflow:auto}
 <div class="row"><span>خصم الإلغاء (١٥٪ من سعر الوحدة)</span><b class="bad">−١٥٠٬٠٠٠ ريال</b></div>
 <div class="row"><span>يرجع لك</span><b>٥٠٬٠٠٠ ريال</b></div>
 <div class="big2 bad">خسارة ٧٥٪ من مالك</div></div>
-<div class="box win"><h3>التنازل عبر عقار منفذ</h3>
+<div class="box win"><h3>التنازل عبر عقود منفذ</h3>
 <div class="row"><span>المدفوع</span><b>٢٠٠٬٠٠٠ ريال</b></div>
 <div class="row"><span>عمولة على البائع</span><b>٠ ريال</b></div>
 <div class="row"><span>تستلم عند إتمام التنازل</span><b>٢٠٠٬٠٠٠ ريال</b></div>
@@ -180,13 +183,13 @@ dialog{max-width:520px;max-height:90vh;overflow:auto}
 <select id="fc" aria-label="المدينة"><option value="">كل المدن</option></select>
 </div>
 <div class="grid" id="gr"></div>
-<p class="note">العروض المعروضة حاليًا أمثلة تجريبية.</p>
+<p class="note" id="gnote"></p>
 </div></section>
 
 <section id="sell"><div class="w">
 <h2>اعرض عقدك</h2>
 <p class="sub">اختر الفئة وأدخل تفاصيلها كاملة، وبعدها تبدأ مرحلة التفاوض مع المشترين. نراجع العرض قبل النشر.</p>
-<div class="box"><div class="tabs" id="tabs"></div><div class="sell" id="sf"></div><div class="note" id="sn" aria-live="polite"></div><button class="btn" id="sb" style="margin-top:14px;min-width:200px">انشر العرض</button></div>
+<div class="box"><div class="note" id="sg" style="margin:0 0 10px"></div><div class="tabs" id="tabs"></div><div class="sell" id="sf"></div><div class="note" id="sn" aria-live="polite"></div><button class="btn" id="sb" style="margin-top:14px;min-width:200px">انشر العرض</button></div>
 </div></section>
 
 <section class="alt"><div class="w">
@@ -203,13 +206,14 @@ dialog{max-width:520px;max-height:90vh;overflow:auto}
 <details><summary>هل يمكنني التنازل عن أي عقد؟</summary><p>يعتمد على شروط عقدك وموافقة المطوّر أو الجهة الممولة. نراجع ذلك معك قبل النشر.</p></details>
 <details><summary>متى أستلم فلوسي؟</summary><p>بعد إتمام التنازل رسميًا. وآلية حجز مبلغ المشتري عبر جهة دفع مرخصة قيد الإعداد.</p></details>
 <details><summary>كم تأخذون عمولة؟</summary><p>لا شيء على البائع، وفتح التواصل والتفاوض مجاني. وتُحدَّد عمولة الصفقة (مقترحة ٢٫٥٪) عند الإتمام فقط، وقبل الإطلاق نؤكدها.</p></details>
-<details><summary>هل عقار منفذ استشارة قانونية؟</summary><p>لا. الأرقام استرشادية، والمراجعة النهائية تتم على عقدك الفعلي مع مختصين مؤهلين.</p></details>
+<details><summary>هل عقود منفذ استشارة قانونية؟</summary><p>لا. الأرقام استرشادية، والمراجعة النهائية تتم على عقدك الفعلي مع مختصين مؤهلين.</p></details>
 </div></section>
+<section id="admin" class="alt" hidden><div class="w"><h2>لوحة الإدارة</h2><p class="sub">إدارة العروض والمستخدمين وسجل التدقيق. كل قرار يُسجَّل.</p><div class="tabs" id="atabs"></div><div id="abody"></div></div></section>
 </main>
 
 <footer><div class="w">
-<div class="brand"><svg class="mk" viewBox="0 0 120 120" aria-hidden="true"><use href="#mk"/></svg><span><b>عقار منفذ</b><small>AQAR MANFAD</small></span></div>
-نموذج تجريبي: الدفع المعروض محاكاة ولا يتم فيه خصم فعلي، والعقود المعروضة أمثلة، والمنصة لم تحصل بعد على التراخيص اللازمة للتشغيل. © ٢٠٢٦ عقار منفذ.
+<div class="brand"><svg class="mk" viewBox="0 0 120 120" aria-hidden="true"><use href="#mk"/></svg><span><b>عقود منفذ</b><small>UQOOD MANFAD</small></span></div>
+نموذج تجريبي: الدفع المعروض محاكاة ولا يتم فيه خصم فعلي، والعقود المعروضة أمثلة، والمنصة لم تحصل بعد على التراخيص اللازمة للتشغيل. © ٢٠٢٦ عقود منفذ.
 </div></footer>
 
 <dialog id="dg"><div id="db"></div></dialog>
@@ -222,8 +226,8 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;
 $("tg").onclick=function(){var d=document.documentElement,t=d.getAttribute("data-theme")==="dark"?"light":"dark";d.setAttribute("data-theme",t);try{localStorage.setItem("aqm_theme",t)}catch(e){}};
 var CATS={
 unit:{n:"وحدة سكنية",nt:"التنازل يحتاج غالبًا موافقة المطوّر.",f:[["price","سعر الوحدة الأصلي (ريال)","n"],["paid","المبلغ المدفوع (ريال)","n"],["ask","المطلوب من المتنازل (ريال)","n"],["monthly","القسط الشهري (ريال)","n"],["ctype","نوع العقد","s",["بيع على الخارطة","تمليك بالتقسيط","أخرى"]],["party","جهة التعاقد","t"],["approve","إمكانية التنازل","s",["تحتاج موافقة المطوّر","مسموح بدون موافقة","غير مؤكد"]]]},
-car:{n:"سيارة",nt:"نقل عقد التمويل يحتاج موافقة الممول.",f:[["model","نوع السيارة وموديلها","t"],["year","سنة الصنع","n"],["fin","جهة التمويل","t"],["monthly","قيمة القسط (ريال)","n"],["left","الأقساط المتبقية","n"],["paid","الدفعة المقدمة التي دفعها صاحب العقد (ريال)","n"],["ask","مبلغ التنازل المطلوب (ريال)","n"],["cond","حالة السيارة والمسافة المقطوعة","t"],["allow","هل يسمح الممول بنقل العقد؟","s",["نعم","بعد موافقة الممول","لا","غير مؤكد"]]]},
-equip:{n:"رافعة أو معدة",nt:"تأكد هل التنازل عن المعدة فقط أم عن عقد التمويل أو التأجير أيضًا.",f:[["model","نوع المعدة والموديل","t"],["yh","سنة الصنع وساعات التشغيل","t"],["loc","الموقع الحالي للمعدة","t"],["maint","حالة الصيانة","t"],["value","قيمة المعدة (ريال)","n"],["remain","الرصيد المتبقي من التمويل أو الإيجار (ريال)","n"],["term","مدة العقد المتبقية","t"],["scope","نطاق التنازل","s",["عن المعدة فقط","عن عقد التمويل","عن عقد التأجير","المعدة والعقد معًا"]],["ask","المبلغ المطلوب للتنازل (ريال)","n"]]},
+car:{n:"سيارة",nt:"نقل عقد التمويل يحتاج موافقة الممول.",f:[["model","نوع السيارة وموديلها","t"],["year","سنة الصنع","n"],["fin","جهة التمويل","t"],["monthly","قيمة القسط (ريال)","n"],["left","الأقساط المتبقية","n"],["paid","الدفعة المقدمة التي دفعها صاحب العقد (ريال)","n"],["ask","مبلغ التنازل المطلوب (ريال)","n"],["cond","حالة السيارة والمسافة المقطوعة","t"],["allow","هل يسمح الممول بنقل العقد؟","s",["نعم","بعد موافقة الممول","لا","غير مؤكد"]],["insp","صور تقرير الفحص (حتى ٣ صور)","i"]]},
+equip:{n:"رافعة أو معدة",nt:"تأكد هل التنازل عن المعدة فقط أم عن عقد التمويل أو التأجير أيضًا.",f:[["model","نوع المعدة والموديل","t"],["yh","سنة الصنع وساعات التشغيل","t"],["loc","الموقع الحالي للمعدة","t"],["maint","حالة الصيانة","t"],["value","قيمة المعدة (ريال)","n"],["remain","الرصيد المتبقي من التمويل أو الإيجار (ريال)","n"],["term","مدة العقد المتبقية","t"],["scope","نطاق التنازل","s",["عن المعدة فقط","عن عقد التمويل","عن عقد التأجير","المعدة والعقد معًا"]],["ask","المبلغ المطلوب للتنازل (ريال)","n"],["insp","صور تقرير الفحص (حتى ٣ صور)","i"]]},
 shop:{n:"محل للتقبيل",nt:"لا تُعد رخصة النشاط أو عقد الإيجار قابلة للنقل تلقائيًا، فلكل عنصر إجراء مستقل وموافقاته.",f:[["act","نشاط المحل","t"],["ask","قيمة التقبيل المطلوبة (ريال)","n"],["rent","مدة عقد الإيجار المتبقية","t"],["chk","ما يشمله التقبيل","c",["المعدات والأجهزة","الأثاث والتجهيزات","المخزون","الاسم التجاري أو العلامة","عقد الإيجار وحق الانتفاع بالموقع","الرخص والتصاريح القابلة للنقل"]]]}};
 var items=[
 {id:"s1",c:"unit",t:"شقة ٣ غرف، حي الياسمين",m:"الرياض",f:{price:900000,paid:360000,ask:360000,monthly:4500,ctype:"بيع على الخارطة",party:"مطوّر عقاري (مثال)",approve:"تحتاج موافقة المطوّر"}},
@@ -234,72 +238,150 @@ var items=[
 {id:"s6",c:"equip",t:"رافعة برجية ٢٥ طنًا",m:"الدمام",f:{model:"رافعة ٢٥ طنًا",yh:"٢٠٢١ · ٤٬١٠٠ ساعة",loc:"الدمام",maint:"تحتاج صيانة خفيفة",value:600000,remain:280000,term:"٢٠ شهرًا",scope:"عن عقد التأجير",ask:90000}},
 {id:"s7",c:"shop",t:"مطعم برجر بموقع تجاري",m:"الرياض",f:{act:"مطعم",ask:180000,rent:"٣ سنوات",chk:["المعدات والأجهزة","الأثاث والتجهيزات","المخزون","عقد الإيجار وحق الانتفاع بالموقع"]}},
 {id:"s8",c:"shop",t:"كوفي شوب جاهز للتشغيل",m:"جدة",f:{act:"مقهى",ask:120000,rent:"سنتان",chk:["المعدات والأجهزة","الأثاث والتجهيزات","الاسم التجاري أو العلامة"]}}];
-try{var sv=JSON.parse(localStorage.getItem("aqm_items2")||"null");if(sv)items=sv}catch(e){}
-var negs={};try{negs=JSON.parse(localStorage.getItem("aqm_negs")||"{}")}catch(e){}
+var SB_URL="https://ytdspvcycuhxwrypnrck.supabase.co",SB_KEY="sb_publishable_hoJzrByaEuw_E2jdvkRJYg_k5XksyHO";
+var sb=null,me=null,role="user",real=false;
+try{sb=supabase.createClient(SB_URL,SB_KEY)}catch(e){}
 function calc(){
 var p=+$("cp").value||0,d=+$("cd").value||0,x=+$("cx").value||0,y=+$("cy").value||1;
 var cut=p*x/100,back=Math.max(0,d-cut),loss=d-back,rem=Math.max(0,p-d);
 $("cr").innerHTML='<h3>النتيجة</h3>'+
 '<div class="row"><span>لو ألغيت: يرجع لك</span><b class="bad">'+R(back)+'</b></div>'+
 '<div class="row"><span>خسارتك بالإلغاء</span><b class="bad">'+R(loss)+'</b></div>'+
-'<div class="row"><span>لو تنازلت عبر عقار منفذ: تستلم</span><b class="ok">'+R(d)+'</b></div>'+
+'<div class="row"><span>لو تنازلت عبر عقود منفذ: تستلم</span><b class="ok">'+R(d)+'</b></div>'+
 '<div class="row"><span>المتبقي على المشتري</span><b>'+R(rem)+'</b></div>'+
 '<div class="row"><span>القسط الشهري التقريبي للمشتري</span><b>'+R(rem/(y*12))+'</b></div>'+
 '<div class="big2 ok">توفّر '+R(loss)+'</div>'}
 ["cp","cd","cx","cy"].forEach(function(i){$(i).oninput=calc});calc();
-function fv(l,v,t){if(t==="c")return(v||[]).join("، ")||"—";if(t==="n")return l.indexOf("ريال")>-1?R(v):n(v);return esc(v)}
+function fv(l,v,t){if(t==="i")return(v&&v.length)?n(v.length)+" صور":"—";if(t==="c")return(v||[]).map(esc).join("، ")||"—";if(t==="n")return l.indexOf("ريال")>-1?R(v):n(v);return esc(v==null?"":v)}
 function cities(){var s={};items.forEach(function(i){s[i.m]=1});var f=$("fc"),v=f.value;
 f.innerHTML='<option value="">كل المدن</option>'+Object.keys(s).map(function(k){return"<option>"+esc(k)+"</option>"}).join("");f.value=v}
+var STL={pending:"بانتظار المراجعة",approved:"منشور",rejected:"مرفوض",closed:"مغلق"};
 function draw(){
 var t=$("ft").value,c=$("fc").value;
 var l=items.filter(function(i){return(!t||i.c===t)&&(!c||i.m===c)});
-$("gr").innerHTML=l.length?l.map(function(i){var C=CATS[i.c],sp=C.f.filter(function(x){return x[0]!=="ask"&&x[2]!=="c"}).slice(0,3);
+$("gnote").textContent=real?"":"هذه أمثلة تجريبية إلى أن تُنشر عروض حقيقية.";
+$("gr").innerHTML=l.length?l.map(function(i){var C=CATS[i.c],sp=C.f.filter(function(x){return x[0]!=="ask"&&x[2]!=="c"&&x[2]!=="i"}).slice(0,3);
 return'<div class="card"><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#mk"/></svg></div><div class="in"><span class="tag">'+C.n+'</span><h3>'+esc(i.t)+'</h3><small>'+esc(i.m)+'</small>'+
 '<div class="meta"><div style="grid-column:1/-1"><span>المطلوب للتنازل</span><b>'+R(i.f.ask)+'</b></div>'+sp.map(function(x){return'<div><span>'+x[1].replace(/ \(ريال\)/,"")+'</span>'+fv(x[1],i.f[x[0]],x[2])+'</div>'}).join("")+'</div>'+
-'<button class="btn" style="width:100%" data-id="'+i.id+'">عرض التفاصيل</button></div></div>'}).join(""):'<p class="note">لا توجد عروض مطابقة.</p>'}
+'<button class="btn" style="width:100%" data-id="'+esc(i.id)+'">عرض التفاصيل</button></div></div>'}).join(""):'<p class="note">لا توجد عروض مطابقة.</p>'}
 $("ft").onchange=draw;$("fc").onchange=draw;
 $("gr").onclick=function(e){var b=e.target.closest("button[data-id]");if(b)openD(b.getAttribute("data-id"))};
 function find(id){return items.filter(function(i){return i.id===id})[0]}
 function stg(k){return'<div class="st">'+["العرض","التفاوض","الاتفاق","التوثيق"].map(function(x,j){return'<span'+(j<=k?' class="on"':'')+'>'+x+'</span>'}).join("")+'</div>'}
+var GH='<button class="btn o" id="dx">إغلاق</button>';var after=null;
+async function gal(p,id){var el=$(id);if(!el||!p||!p.length)return;
+if(!me||!sb){el.innerHTML='<p class="note">صور الفحص تظهر للمسجلين فقط. <button class="btn o" style="padding:4px 12px" id="gl">سجّل الدخول</button></p>';var g=$("gl");if(g)g.onclick=function(){auth(false)};return}
+var h='';for(var k=0;k<p.length;k++){var r=await sb.storage.from("inspections").createSignedUrl(String(p[k]),3600);if(r.data)h+='<a href="'+r.data.signedUrl+'" target="_blank" rel="noopener"><img src="'+r.data.signedUrl+'" alt="صورة تقرير الفحص" style="width:100%;border-radius:10px;margin:6px 0"></a>'}
+el.innerHTML='<b style="font-size:14px">صور تقرير الفحص</b>'+h}
+function say(h){$("db").innerHTML=h;if(!$("dg").open)$("dg").showModal();var x=$("dx");if(x)x.onclick=function(){$("dg").close()}}
 function openD(id){var i=find(id),C=CATS[i.c];
-$("db").innerHTML='<h3>'+esc(i.t)+'</h3><small style="color:var(--mut)">'+C.n+' · '+esc(i.m)+'</small>'+stg(negs[id]?1:0)+
+say('<h3>'+esc(i.t)+'</h3><small style="color:var(--mut)">'+C.n+' · '+esc(i.m)+'</small>'+stg(0)+
 C.f.map(function(x){return'<div class="row"><span>'+x[1]+'</span><b>'+fv(x[1],i.f[x[0]],x[2])+'</b></div>'}).join("")+
 (i.f.note?'<div class="row"><span>ملاحظات</span><b>'+esc(i.f.note)+'</b></div>':'')+
-'<p class="note">'+C.nt+' فتح التواصل مجاني.</p><div class="dact"><button class="btn" id="dn">ابدأ التفاوض</button><button class="btn" style="background:transparent;color:var(--ink);border:1.5px solid var(--line)" id="dx">إغلاق</button></div>';
-$("dx").onclick=function(){$("dg").close()};$("dn").onclick=function(){openN(id)};
-if(!$("dg").open)$("dg").showModal()}
-function openN(id){var i=find(id),th=negs[id]||[];
-$("db").innerHTML='<h3>التفاوض على: '+esc(i.t)+'</h3>'+stg(th.length?1:0)+
-'<p class="note" style="margin:0 0 8px">التواصل والتفاوض مجانيان. سعر التنازل المطلوب: '+R(i.f.ask)+'.</p>'+
-(th.length?th.map(function(m){return'<div class="msg"><b>المشتري:</b> عرض '+R(m.o)+(m.t?' — '+esc(m.t):'')+'</div>'}).join("")+'<p class="note">بانتظار رد البائع. (الردود مفعّلة في النسخة الكاملة)</p>':'<p class="note">قدّم أول عرض لك.</p>')+
-'<label for="no">عرضك (ريال)</label><input id="no" type="number" min="0" inputmode="numeric"><label for="nm">رسالة</label><input id="nm" placeholder="اختياري">'+
-'<div class="dact"><button class="btn" id="ns">أرسل العرض</button><button class="btn" style="background:transparent;color:var(--ink);border:1.5px solid var(--line)" id="nb">رجوع</button></div>';
-$("nb").onclick=function(){openD(id)};
-$("ns").onclick=function(){var o=+$("no").value;if(!o)return;(negs[id]=negs[id]||[]).push({o:o,t:$("nm").value.trim()});try{localStorage.setItem("aqm_negs",JSON.stringify(negs))}catch(e){}openN(id)}}
+'<div id="gal"></div><p class="note">'+C.nt+' فتح التواصل مجاني.</p><div class="dact"><button class="btn" id="dn">ابدأ التفاوض</button>'+GH+'</div>');
+$("dn").onclick=function(){openN(id)};gal(i.f.insp,"gal")}
+function auth(su){
+say('<h3>'+(su?"إنشاء حساب":"تسجيل الدخول")+'</h3><label for="ae">البريد الإلكتروني</label><input id="ae" type="email" autocomplete="email"><label for="apw">كلمة السر (١٠ أحرف على الأقل)</label><input id="apw" type="password" autocomplete="'+(su?"new-password":"current-password")+'"><p class="note" id="am" aria-live="polite"></p><div class="dact"><button class="btn" id="ago">'+(su?"إنشاء الحساب":"دخول")+'</button><button class="btn o" id="asw">'+(su?"لدي حساب":"حساب جديد")+'</button>'+GH+'</div>');
+$("asw").onclick=function(){auth(!su)};
+$("ago").onclick=async function(){
+var e=$("ae").value.trim(),p=$("apw").value,m=$("am");
+if(!e||p.length<10){m.textContent="أدخل بريدًا صحيحًا وكلمة سر من ١٠ أحرف على الأقل.";return}
+if(!sb){m.textContent="الخدمة غير متاحة الآن.";return}
+var r=su?await sb.auth.signUp({email:e,password:p}):await sb.auth.signInWithPassword({email:e,password:p});
+if(r.error){m.textContent=su?"تعذّر إنشاء الحساب.":"بيانات الدخول غير صحيحة.";return}
+if(su){m.textContent="تم إنشاء الحساب. أكّد بريدك من الرسالة المرسلة ثم سجّل الدخول."}else{me=r.data.user;$("dg").close();refresh();var fn=after;after=null;if(fn)setTimeout(fn,250)}}}
+async function account(){
+var L=await sb.from("listings").select("id,title,status").eq("owner_id",me.id).order("created_at",{ascending:false});
+var N=await sb.from("negotiations").select("id,listings(title)").order("created_at",{ascending:false});
+var l=L.data||[],ng=N.data||[];
+say('<h3>حسابي</h3><small style="color:var(--mut)">'+esc(me.email)+'</small><h4 style="margin:14px 0 4px">عروضي</h4>'+
+(l.length?l.map(function(x){return'<div class="row"><span>'+esc(x.title)+'</span><b>'+(STL[x.status]||"")+'</b></div>'}).join(""):'<p class="note">لا عروض بعد.</p>')+
+'<h4 style="margin:14px 0 4px">مفاوضاتي</h4>'+(ng.length?ng.map(function(x){return'<div class="row"><span>'+esc(x.listings?x.listings.title:"عرض")+'</span><button class="btn o" style="padding:4px 12px" data-n="'+esc(x.id)+'">فتح</button></div>'}).join(""):'<p class="note">لا مفاوضات بعد.</p>')+
+'<div class="dact"><button class="btn o" id="so">تسجيل الخروج</button>'+GH+'</div>');
+$("so").onclick=async function(){await sb.auth.signOut();$("dg").close()};
+$("db").querySelectorAll("[data-n]").forEach(function(b){b.onclick=function(){thread(b.getAttribute("data-n"),"")}})}
+async function thread(nid,title){
+var M=await sb.from("messages").select("sender_id,amount,body").eq("negotiation_id",nid).order("created_at"),d=M.data||[];
+say('<h3>التفاوض'+(title?': '+esc(title):'')+'</h3>'+stg(d.length?1:0)+'<p class="note" style="margin:0 0 8px">التواصل والتفاوض مجانيان.</p>'+
+(d.length?d.map(function(m){return'<div class="msg"><b>'+(m.sender_id===me.id?"أنا":"الطرف الآخر")+':</b> '+(m.amount?'عرض '+R(m.amount)+' ':'')+esc(m.body||"")+'</div>'}).join(""):'<p class="note">ابدأ بأول رسالة أو عرض.</p>')+
+'<label for="no">عرض سعر (اختياري، ريال)</label><input id="no" type="number" min="0" inputmode="numeric"><label for="nm">رسالة</label><input id="nm" maxlength="1000"><p class="note" id="nn"></p>'+
+'<div class="dact"><button class="btn" id="ns">إرسال</button><button class="btn o" id="nb">حسابي</button>'+GH+'</div>');
+$("nb").onclick=account;
+$("ns").onclick=async function(){var o=+$("no").value||null,t=$("nm").value.trim()||null;if(!o&&!t)return;
+var r=await sb.from("messages").insert({negotiation_id:nid,amount:o,body:t});
+if(r.error){$("nn").textContent="تعذّر الإرسال.";return}thread(nid,title)}}
+async function openN(id){
+var i=find(id);
+if(!real||!sb){say('<h3>عرض تجريبي</h3><p class="note">هذا مثال توضيحي. التفاوض يعمل على العروض الحقيقية المنشورة.</p><div class="dact">'+GH+'</div>');return}
+if(!me){after=function(){openN(id)};auth(false);return}
+var r=await sb.from("negotiations").select("id").eq("listing_id",id).eq("buyer_id",me.id).maybeSingle(),nid=r.data&&r.data.id;
+if(!nid){var c=await sb.from("negotiations").insert({listing_id:id}).select("id").single();
+if(c.error){say('<p class="note">تعذّر بدء التفاوض. لا يمكنك التفاوض على عرضك.</p><div class="dact">'+GH+'</div>');return}nid=c.data.id}
+thread(nid,i?i.t:"")}
 var cur="unit";
 function form(){
 $("tabs").innerHTML=Object.keys(CATS).map(function(k){return'<button class="tab" data-k="'+k+'" aria-selected="'+(k===cur)+'">'+CATS[k].n+'</button>'}).join("");
-var h='<div class="full"><label for="f_t">عنوان العرض</label><input id="f_t" placeholder="مثال: '+({unit:"شقة ٣ غرف، حي الياسمين",car:"سيارة موديل ٢٠٢٤",equip:"حفارة ٣٢٠",shop:"مطعم بموقع تجاري"})[cur]+'"></div><div><label for="f_m">المدينة</label><input id="f_m" placeholder="مثال: جدة"></div>';
+var h='<div class="full"><label for="f_t">عنوان العرض</label><input id="f_t" maxlength="120" placeholder="مثال: '+({unit:"شقة ٣ غرف، حي الياسمين",car:"سيارة موديل ٢٠٢٤",equip:"حفارة ٣٢٠",shop:"مطعم بموقع تجاري"})[cur]+'"></div><div><label for="f_m">المدينة</label><input id="f_m" maxlength="60" placeholder="مثال: جدة"></div>';
 CATS[cur].f.forEach(function(x){var id="f_"+x[0];
 if(x[2]==="s")h+='<div><label for="'+id+'">'+x[1]+'</label><select id="'+id+'">'+x[3].map(function(o){return"<option>"+o+"</option>"}).join("")+'</select></div>';
 else if(x[2]==="c")h+='<div class="full"><label>'+x[1]+'</label><div class="chk" id="'+id+'">'+x[3].map(function(o){return'<label><input type="checkbox" value="'+o+'">'+o+'</label>'}).join("")+'</div></div>';
-else h+='<div><label for="'+id+'">'+x[1]+'</label><input id="'+id+'"'+(x[2]==="n"?' type="number" min="0" inputmode="numeric"':'')+'></div>'});
-h+='<div class="full"><label for="f_note">ملاحظات (اختياري)</label><input id="f_note"></div>';
+else if(x[2]==="i")h+='<div class="full"><label for="'+id+'">'+x[1]+'</label><input id="'+id+'" type="file" accept="image/jpeg,image/png,image/webp" multiple><span class="note" style="margin:4px 0 0;display:block">صورة إلى ثلاث، حتى ٣ ميجا للصورة (jpg أو png أو webp). تظهر للمسجلين فقط.</span></div>';
+else h+='<div><label for="'+id+'">'+x[1]+'</label><input id="'+id+'" maxlength="200"'+(x[2]==="n"?' type="number" min="0" inputmode="numeric"':'')+'></div>'});
+h+='<div class="full"><label for="f_note">ملاحظات (اختياري)</label><input id="f_note" maxlength="300"></div>';
 $("sf").innerHTML=h;$("sn").textContent=""}
 $("tabs").onclick=function(e){var b=e.target.closest(".tab");if(b){cur=b.getAttribute("data-k");form()}};
 document.querySelectorAll("[data-cat]").forEach(function(b){b.onclick=function(){cur=b.getAttribute("data-cat");form();$("sell").scrollIntoView()}});
-$("sb").onclick=function(){
-var t=$("f_t").value.trim(),m=$("f_m").value.trim(),f={},ok=!!(t&&m);
+$("sb").onclick=async function(){
+var t=$("f_t").value.trim(),m=$("f_m").value.trim(),f={},files=[],ok=!!(t&&m);
 CATS[cur].f.forEach(function(x){var el=$("f_"+x[0]);
 if(x[2]==="c"){f[x[0]]=[].slice.call(el.querySelectorAll("input:checked")).map(function(c){return c.value});if(!f[x[0]].length)ok=false}
+else if(x[2]==="i"){files=[].slice.call(el.files);if(!files.length||files.length>3||files.some(function(q){return q.size>3145728||["image/jpeg","image/png","image/webp"].indexOf(q.type)<0}))ok=false}
 else if(x[2]==="n"){f[x[0]]=+el.value;if(!f[x[0]])ok=false}
 else{f[x[0]]=el.value.trim();if(!f[x[0]])ok=false}});
-if(!ok){$("sn").textContent="أكمل كل الحقول المطلوبة لهذه الفئة قبل النشر.";return}
+if(!ok){$("sn").textContent="أكمل كل الحقول المطلوبة قبل النشر (وصور الفحص: من ١ إلى ٣ صور، حتى ٣ ميجا للصورة).";return}
 var nt=$("f_note").value.trim();if(nt)f.note=nt;
-items.unshift({id:"u"+Date.now(),c:cur,t:t,m:m,f:f});
-try{localStorage.setItem("aqm_items2",JSON.stringify(items))}catch(e){}
-cities();draw();form();$("sn").textContent="تم استلام عرضك للمراجعة، وظهر في القائمة كنموذج تجريبي."};
+if(!sb){$("sn").textContent="الخدمة غير متاحة الآن.";return}
+if(!me){after=function(){$("sb").click()};auth(false);return}
+$("sn").textContent="جارٍ الرفع...";
+if(files.length){var ps=[];for(var k=0;k<files.length;k++){var q=files[k],ex=({"image/jpeg":"jpg","image/png":"png","image/webp":"webp"})[q.type],pth=me.id+"/"+crypto.randomUUID()+"."+ex,u=await sb.storage.from("inspections").upload(pth,q,{contentType:q.type});if(u.error){$("sn").textContent="تعذّر رفع الصور.";return}ps.push(pth)}f.insp=ps}
+var r=await sb.from("listings").insert({category:cur,title:t,city:m,ask:f.ask,details:f});
+if(r.error){$("sn").textContent="تعذّر إرسال العرض. تأكد من الحقول.";return}
+form();$("sn").textContent="تم استلام عرضك وهو بانتظار مراجعة الإدارة قبل ظهوره."};
+async function loadListings(){
+if(!sb)return;
+var r=await sb.from("listings").select("id,category,title,city,details").eq("status","approved").order("created_at",{ascending:false});
+if(!r.error&&r.data&&r.data.length){items=r.data.map(function(x){return{id:x.id,c:x.category,t:x.title,m:x.city,f:x.details}});real=true}
+cities();draw()}
+var atab="ov",ATABS=[["ov","نظرة عامة"],["pd","بانتظار المراجعة"],["ls","كل العروض"],["us","المستخدمون"],["au","سجل التدقيق"]];
+function adm(){$("atabs").innerHTML=ATABS.map(function(t){return'<button class="tab" data-t="'+t[0]+'" aria-selected="'+(t[0]===atab)+'">'+t[1]+'</button>'}).join("");({ov:aOv,pd:aPd,ls:aLs,us:aUs,au:aAu})[atab]()}
+$("atabs").onclick=function(e){var b=e.target.closest(".tab");if(b){atab=b.getAttribute("data-t");adm()}};
+async function cnt(tb,col,val){var q=sb.from(tb).select("id",{count:"exact",head:true});if(col)q=q.eq(col,val);var r=await q;return r.count||0}
+async function aOv(){var v=await Promise.all([cnt("profiles"),cnt("listings","status","pending"),cnt("listings","status","approved"),cnt("listings","status","rejected"),cnt("listings","status","closed"),cnt("negotiations")]);
+var L=["المستخدمون","بانتظار المراجعة","منشورة","مرفوضة","مغلقة","المفاوضات"];
+$("abody").innerHTML='<div class="cats">'+L.map(function(x,i){return'<div class="box"><b style="font-size:28px;color:var(--ac)">'+n(v[i])+'</b><p class="note" style="margin:0">'+x+'</p></div>'}).join("")+'</div>'}
+async function aPd(){var r=await sb.from("listings").select("id,category,title,city,details").eq("status","pending").order("created_at"),d=r.data||[];
+$("abody").innerHTML=d.length?'<div class="grid">'+d.map(function(x){var C=CATS[x.category];if(!C)return"";
+return'<div class="card"><div class="in"><span class="tag">'+C.n+'</span><h3>'+esc(x.title)+'</h3><small>'+esc(x.city)+'</small><div style="margin:10px 0">'+C.f.map(function(q){return'<div class="row"><span>'+q[1]+'</span><b>'+fv(q[1],x.details[q[0]],q[2])+'</b></div>'}).join("")+'</div><div id="g_'+esc(x.id)+'"></div><div class="dact"><button class="btn" data-id="'+esc(x.id)+'" data-s="approved">قبول</button><button class="btn o" data-id="'+esc(x.id)+'" data-s="rejected">رفض</button></div></div></div>'}).join("")+'</div>':'<p class="note">لا عروض بانتظار المراجعة.</p>';
+d.forEach(function(x){if(x.details&&x.details.insp)gal(x.details.insp,"g_"+x.id)})}
+async function aLs(){var r=await sb.from("listings").select("id,category,title,city,status").order("created_at",{ascending:false}).limit(100),d=r.data||[];
+var B=function(id,s,t,o){return'<button class="btn'+(o?' o':'')+'" style="padding:4px 12px" data-id="'+esc(id)+'" data-s="'+s+'">'+t+'</button>'};
+$("abody").innerHTML=d.length?d.map(function(x){return'<div class="row"><span>'+esc(x.title)+' · '+esc(x.city)+' <small>('+(CATS[x.category]?CATS[x.category].n:"")+' · '+(STL[x.status]||"")+')</small></span><span style="display:flex;gap:6px">'+B(x.id,"approved","قبول")+B(x.id,"rejected","رفض",1)+B(x.id,"closed","إغلاق",1)+'</span></div>'}).join(""):'<p class="note">لا عروض.</p>'}
+async function aUs(){var r=await sb.from("profiles").select("id,email,role").order("created_at",{ascending:false}).limit(200),d=r.data||[];
+var O=function(x,v,t){return'<option value="'+v+'"'+(x.role===v?" selected":"")+'>'+t+'</option>'};
+$("abody").innerHTML=d.length?d.map(function(x){return'<div class="row"><span>'+esc(x.email||x.id.slice(0,8))+'</span>'+(role==="admin"?'<select data-u="'+esc(x.id)+'" aria-label="الدور" style="width:auto">'+O(x,"user","مستخدم")+O(x,"moderator","مشرف")+O(x,"admin","أدمن")+'</select>':'<b>'+esc(x.role)+'</b>')+'</div>'}).join(""):'<p class="note">لا مستخدمين.</p>'}
+async function aAu(){var r=await sb.from("audit_log").select("action,entity,detail,at").order("at",{ascending:false}).limit(50),d=r.data||[];
+$("abody").innerHTML=d.length?d.map(function(x){return'<div class="row"><span>'+esc(x.action)+' · '+esc(x.entity||"")+' '+esc(JSON.stringify(x.detail||{}))+'</span><small>'+esc(new Date(x.at).toLocaleString("ar-SA"))+'</small></div>'}).join(""):'<p class="note">لا سجلات بعد.</p>'}
+$("abody").onclick=async function(e){var b=e.target.closest("button[data-s]");if(!b)return;var r=await sb.rpc("moderate_listing",{p_id:b.getAttribute("data-id"),p_status:b.getAttribute("data-s")});if(!r.error){adm();loadListings()}};
+$("abody").onchange=async function(e){var x=e.target.closest("select[data-u]");if(!x)return;await sb.rpc("set_user_role",{p_user:x.getAttribute("data-u"),p_role:x.value});adm()};
+async function refresh(){
+var s=await sb.auth.getSession();me=s.data.session?s.data.session.user:null;role="user";
+if(me){var p=await sb.from("profiles").select("role").eq("id",me.id).single();if(p.data)role=p.data.role}
+$("au").textContent=me?"حسابي":"دخول";
+$("sg").innerHTML=me?"":'<b>يلزم تسجيل الدخول لنشر عرض أو بدء التفاوض.</b> <button class="btn o" id="sgb" style="padding:4px 14px">دخول</button>';var sgb=$("sgb");if(sgb)sgb.onclick=function(){auth(false)};
+var st=role==="admin"||role==="moderator";$("admin").hidden=!st;$("nad").hidden=!st;if(st)adm()}
+$("au").onclick=function(){if(!sb)return;me?account():auth(false)};
 cities();draw();form();
+if(sb){sb.auth.onAuthStateChange(function(){refresh()});loadListings();refresh()}
 </script>
 </body>
 </html>

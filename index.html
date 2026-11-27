@@ -280,6 +280,14 @@ C.f.map(function(x){return'<div class="row"><span>'+x[1]+'</span><b>'+fv(x[1],i.
 (i.f.note?'<div class="row"><span>ملاحظات</span><b>'+esc(i.f.note)+'</b></div>':'')+
 '<div id="gal"></div><p class="note">'+C.nt+' فتح التواصل مجاني.</p><div class="dact"><button class="btn" id="dn">ابدأ التفاوض</button>'+GH+'</div>');
 $("dn").onclick=function(){openN(id)};gal(i.f.insp,"gal")}
+function aerr(e,su){var c=((e.code||"")+" "+(e.message||"")).toLowerCase();
+if(c.indexOf("rate")>-1)return"تجاوزت الحد المسموح من الطلبات أو رسائل البريد. انتظر ساعة وحاول مجددًا.";
+if(c.indexOf("already")>-1)return"هذا البريد مسجّل مسبقًا. استخدم دخول بدل حساب جديد.";
+if(c.indexOf("weak")>-1||c.indexOf("password")>-1)return"كلمة السر ضعيفة أو شائعة. اختر كلمة أقوى.";
+if(c.indexOf("confirm")>-1)return"لم يتم تأكيد بريدك بعد. افتح رسالة التأكيد.";
+if(c.indexOf("invalid")>-1&&!su)return"البريد أو كلمة السر غير صحيحة.";
+if(c.indexOf("database")>-1)return"خطأ في قاعدة البيانات أثناء إنشاء الحساب. أبلغ المسؤول.";
+return(su?"تعذّر إنشاء الحساب: ":"تعذّر الدخول: ")+(e.message||"")}
 function auth(su){
 say('<h3>'+(su?"إنشاء حساب":"تسجيل الدخول")+'</h3><label for="ae">البريد الإلكتروني</label><input id="ae" type="email" autocomplete="email"><label for="apw">كلمة السر (١٠ أحرف على الأقل)</label><input id="apw" type="password" autocomplete="'+(su?"new-password":"current-password")+'"><p class="note" id="am" aria-live="polite"></p><div class="dact"><button class="btn" id="ago">'+(su?"إنشاء الحساب":"دخول")+'</button><button class="btn o" id="asw">'+(su?"لدي حساب":"حساب جديد")+'</button>'+GH+'</div>');
 $("asw").onclick=function(){auth(!su)};
@@ -288,7 +296,8 @@ var e=$("ae").value.trim(),p=$("apw").value,m=$("am");
 if(!e||p.length<10){m.textContent="أدخل بريدًا صحيحًا وكلمة سر من ١٠ أحرف على الأقل.";return}
 if(!sb){m.textContent="الخدمة غير متاحة الآن.";return}
 var r=su?await sb.auth.signUp({email:e,password:p}):await sb.auth.signInWithPassword({email:e,password:p});
-if(r.error){m.textContent=su?"تعذّر إنشاء الحساب.":"بيانات الدخول غير صحيحة.";return}
+if(r.error){m.textContent=aerr(r.error,su);return}
+if(su&&r.data&&r.data.user&&r.data.user.identities&&r.data.user.identities.length===0){m.textContent="هذا البريد مسجّل مسبقًا. استخدم دخول بدل حساب جديد.";return}
 if(su){m.textContent="تم إنشاء الحساب. أكّد بريدك من الرسالة المرسلة ثم سجّل الدخول."}else{me=r.data.user;$("dg").close();refresh();var fn=after;after=null;if(fn)setTimeout(fn,250)}}}
 async function account(){
 var L=await sb.from("listings").select("id,title,status").eq("owner_id",me.id).order("created_at",{ascending:false});
